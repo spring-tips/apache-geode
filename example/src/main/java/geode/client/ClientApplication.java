@@ -1,8 +1,7 @@
 package geode.client;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Random;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -15,11 +14,15 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import java.util.Random;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@EnableClusterConfiguration
 @SpringBootApplication
+@EnableClusterConfiguration
 @EnableEntityDefinedRegions // (/*clientRegionShortcut = ClientRegionShortcut.LOCAL*/)
+// TODO Remember, ClientRegionShortcut is needed (or only necessary) when you are not running and connecting to servers
+// in Geode's client/server topology.
 public class ClientApplication {
 
 	public static void main(String[] args) {
@@ -36,10 +39,10 @@ class Temp {
 	@Id
 	private Long id;
 	private double temp;
+
 }
 
-interface TempRepository extends CrudRepository<Temp, Long> {
-}
+interface TempRepository extends CrudRepository<Temp, Long> { }
 
 @Component
 class Runner implements ApplicationListener<ApplicationReadyEvent> {
@@ -51,7 +54,7 @@ class Runner implements ApplicationListener<ApplicationReadyEvent> {
 	}
 
 	@Override
-	public void onApplicationEvent(ApplicationReadyEvent evt) {
+	public void onApplicationEvent(ApplicationReadyEvent event) {
 		for (int i = 0; i < 100; i++)
 			this.insertRecord();
 	}
