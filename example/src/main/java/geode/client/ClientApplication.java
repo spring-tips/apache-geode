@@ -55,7 +55,8 @@ class Runner implements ApplicationListener<ApplicationReadyEvent> {
 
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
-		for (int i = 0; i < 100; i++)
+		int start = (int) (Math.random() * 100 );
+		for (int i = start; i < start +100; i++)
 			this.insertRecord();
 	}
 
