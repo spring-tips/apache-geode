@@ -8,6 +8,10 @@
     <artifactId>server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
+
+    <name>server</name>
+    <description>Demo project for Spring Boot</description>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -20,23 +24,23 @@
         <project.reporting.outputEncoding>UTF-8
         </project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-boot-data-geode.version>1.0.0.M3
-        </spring-boot-data-geode.version>
-        <spring-shell.version>1.2.0.RELEASE
-        </spring-shell.version>
     </properties>
 
     <dependencies>
-<!--
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>-->
+
         <dependency>
             <groupId>org.springframework.geode</groupId>
             <artifactId>spring-geode-starter</artifactId>
-            <version>${spring-boot-data-geode.version}</version>
+            <version>1.0.0.M3</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.shell</groupId>
+            <artifactId>spring-shell</artifactId>
+            <version>1.2.0.RELEASE</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -46,12 +50,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.shell</groupId>
-            <artifactId>spring-shell</artifactId>
-            <version>1.2.0.RELEASE</version>
-            <scope>runtime</scope>
         </dependency>
     </dependencies>
 
@@ -63,15 +61,7 @@
             </plugin>
         </plugins>
     </build>
-  <!--  <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.apache.logging.log4j</groupId>
-                <artifactId>log4j-to-slf4j</artifactId>
-                <scope>provided</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>-->
+
     <repositories>
         <repository>
             <id>spring-snapshots</id>

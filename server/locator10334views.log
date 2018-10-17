@@ -1,0 +1,26 @@
+
+[info 2018/10/17 11:02:01.763 EDT <main> tid=0x1] Log opened with new distributed system connection.  View[172.20.9.94(ef0d3e4d006717b9721d6a1ba40382e4:63187)<ec><v0>:1024|0] members: [172.20.9.94(ef0d3e4d006717b9721d6a1ba40382e4:63187)<ec><v0>:1024{lead}]
+
+[info 2018/10/17 11:02:58.014 EDT <Cache Server Load Polling Thread> tid=0x56] server count: 1 connected client count: 0 client subscription queue count: 0
+  current servers : 172.20.9.94(ef0d3e4d006717b9721d6a1ba40382e4:63187)<ec><v0>:1024 
+
+[info 2018/10/17 11:05:59.873 EDT <DM-MemberEventInvoker> tid=0x26] A new member joined: 172.20.9.94(f0803aee450a6cade0ad0fe41c715ace:63196)<v1>:1025.  View[172.20.9.94(ef0d3e4d006717b9721d6a1ba40382e4:63187)<ec><v0>:1024|1] members: [172.20.9.94(ef0d3e4d006717b9721d6a1ba40382e4:63187)<ec><v0>:1024{lead}, 172.20.9.94(f0803aee450a6cade0ad0fe41c715ace:63196)<v1>:1025]
+
+[info 2018/10/17 11:43:22.184 EDT <main> tid=0x1] Log opened with new distributed system connection.  View[172.20.9.94(d6bc3d592ce5a0215709a74b518d6719:64140)<ec><v16>:1024|30] members: [172.20.9.94(f0803aee450a6cade0ad0fe41c715ace:63196)<v1>:1025{lead}, 172.20.9.94(d6bc3d592ce5a0215709a74b518d6719:64140)<ec><v16>:1024]
+
+[info 2018/10/17 11:44:02.601 EDT <P2P message reader for 172.20.9.94(f0803aee450a6cade0ad0fe41c715ace:63196)<v1>:1025 shared ordered uid=4 port=53007> tid=0x82] server count: 2 connected client count: 0 client subscription queue count: 1
+  current servers : 172.20.9.94(d6bc3d592ce5a0215709a74b518d6719:64140)<ec><v16>:1024 172.20.9.94(f0803aee450a6cade0ad0fe41c715ace:63196)<v1>:1025 
+
+[info 2018/10/17 11:45:16.835 EDT <main> tid=0x1] Log opened with new distributed system connection.  View[172.20.9.94(f077e13c86b1593f683619316fe849df:64155)<ec><v38>:1024|43] members: [172.20.9.94(f0803aee450a6cade0ad0fe41c715ace:63196)<v1>:1025{lead}, 172.20.9.94(f077e13c86b1593f683619316fe849df:64155)<ec><v38>:1024]
+
+[info 2018/10/17 11:45:38.208 EDT <Cache Server Load Polling Thread> tid=0x6f] server count: 1 connected client count: 1 client subscription queue count: 1
+  current servers : 172.20.9.94(f077e13c86b1593f683619316fe849df:64155)<ec><v38>:1024 
+
+[info 2018/10/17 11:45:49.573 EDT <DM-MemberEventInvoker> tid=0x27] A new member joined: 172.20.9.94(a724244327a8cd0c8d4a82db03b2fc46:64160)<v45>:1025.  View[172.20.9.94(f077e13c86b1593f683619316fe849df:64155)<ec><v38>:1024|45] members: [172.20.9.94(f077e13c86b1593f683619316fe849df:64155)<ec><v38>:1024{lead}, 172.20.9.94(a724244327a8cd0c8d4a82db03b2fc46:64160)<v45>:1025]
+
+[info 2018/10/17 11:48:33.457 EDT <main> tid=0x1] Log opened with new distributed system connection.  View[172.20.9.94(f40255f28257f2b7449e805476965f51:64208)<ec><v58>:1024|67] members: [172.20.9.94(a724244327a8cd0c8d4a82db03b2fc46:64160)<v45>:1025{lead}, 172.20.9.94(f40255f28257f2b7449e805476965f51:64208)<ec><v58>:1024]
+
+[info 2018/10/17 11:48:39.730 EDT <Cache Server Load Polling Thread> tid=0x6c] server count: 1 connected client count: 1 client subscription queue count: 0
+  current servers : 172.20.9.94(f40255f28257f2b7449e805476965f51:64208)<ec><v58>:1024 
+
+[info 2018/10/17 11:48:46.877 EDT <DM-MemberEventInvoker> tid=0x26] A new member joined: 172.20.9.94(7f09260c2d016fbf4c7ea79bff16c7bc:64212)<v69>:1025.  View[172.20.9.94(f40255f28257f2b7449e805476965f51:64208)<ec><v58>:1024|69] members: [172.20.9.94(f40255f28257f2b7449e805476965f51:64208)<ec><v58>:1024{lead}, 172.20.9.94(7f09260c2d016fbf4c7ea79bff16c7bc:64212)<v69>:1025]
