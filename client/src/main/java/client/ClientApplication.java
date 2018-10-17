@@ -20,7 +20,6 @@ import java.util.Random;
 @SpringBootApplication
 @EnableClusterConfiguration // will create 'temps' for me
 @EnableEntityDefinedRegions(basePackageClasses = Temp.class)
-@EnableGemfireFunctionExecutions
 public class ClientApplication {
 
 	public static void main(String[] args) {

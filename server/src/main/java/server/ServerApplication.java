@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.gemfire.config.annotation.CacheServerApplication;
 
+@ComponentScan(basePackageClasses = {ServerApplication.class, Temp.class})
 @SpringBootApplication
-@ComponentScan (basePackageClasses = Temp.class)
 @CacheServerApplication(locators = "localhost[10334]")
 public class ServerApplication {
 

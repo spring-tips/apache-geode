@@ -24,6 +24,8 @@
         <spring-boot-data-geode.version>1.0.0.M3
         </spring-boot-data-geode.version>
         <spring-shell.version>1.2.0.RELEASE</spring-shell.version>
+        <cache-api.version>1.0.0</cache-api.version>
+
 
     </properties>
 
@@ -47,7 +49,11 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>javax.cache</groupId>
+            <artifactId>cache-api</artifactId>
+            <version>${cache-api.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.shell</groupId>
             <artifactId>spring-shell</artifactId>
