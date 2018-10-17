@@ -1,7 +1,8 @@
 package geode.client;
 
-import java.util.Random;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -14,15 +15,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.util.Random;
 
 @SpringBootApplication
-@EnableClusterConfiguration
-@EnableEntityDefinedRegions // (/*clientRegionShortcut = ClientRegionShortcut.LOCAL*/)
-// TODO Remember, ClientRegionShortcut is needed (or only necessary) when you are not running and connecting to servers
-// in Geode's client/server topology.
+@EnableClusterConfiguration // will create 'temps' for me
+@EnableEntityDefinedRegions
 public class ClientApplication {
 
 	public static void main(String[] args) {
@@ -39,13 +36,19 @@ class Temp {
 	@Id
 	private Long id;
 	private double temp;
-
+	private String city;
 }
 
-interface TempRepository extends CrudRepository<Temp, Long> { }
+interface TempRepository extends CrudRepository<Temp, Long> {
+}
 
 @Component
 class Runner implements ApplicationListener<ApplicationReadyEvent> {
+
+	private String randomCity() {
+		String[] cities = "Toronto,San Francisco,New York".split(",");
+		return cities[new Random().nextInt(cities.length)];
+	}
 
 	private final TempRepository tempRepository;
 
@@ -55,13 +58,20 @@ class Runner implements ApplicationListener<ApplicationReadyEvent> {
 
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
-		int start = (int) (Math.random() * 100 );
-		for (int i = start; i < start +100; i++)
+
+
+		this.tempRepository
+			.findAll()
+			.forEach(this.tempRepository::delete);
+
+		int start = (int) (Math.random() * 100);
+		for (int i = start; i < start + 100; i++)
 			this.insertRecord();
 	}
 
 	private void insertRecord() {
-		Temp tmp = new Temp(new Random().nextLong(), new Random().nextDouble() * 110);
+		Temp tmp = new Temp(new Random().nextLong(),
+			new Random().nextDouble() * 110, this.randomCity());
 		Temp saved = this.tempRepository.save(tmp);
 		Long inCache = this.tempRepository.findById(saved.getId()).map(Temp::getId).orElse(null);
 		Assert.isTrue(saved.getId().equals(inCache), "roundtrip should work");

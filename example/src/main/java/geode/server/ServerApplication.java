@@ -18,9 +18,6 @@ public class ServerApplication {
 	@Configuration
 	@EnableLocator
 	@EnableManager(start = true)
-//	@EnableCacheServer
-//	@EnableRedisServer
-//	@EnableMemcachedServer
 	@Profile("locator")
 	public static class LocatorManagerConfiguration {
 	}

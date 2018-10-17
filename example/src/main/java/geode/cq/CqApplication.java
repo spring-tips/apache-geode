@@ -22,9 +22,11 @@ public class CqApplication {
 		new Scanner(System.in).next();
 	}
 
+
 	private int count = 0;
 
-	@ContinuousQuery(name = "NewTempsCq", query = "SELECT * FROM /temps")
+	@ContinuousQuery(name = "NewTempsCq",
+		query = "SELECT * FROM /temps where city.contains('San')")
 	public void onNewTemp(CqEvent event) {
 
 		Optional.ofNullable(event)
