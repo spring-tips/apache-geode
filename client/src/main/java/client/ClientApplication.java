@@ -1,7 +1,7 @@
 package client;
 
-import java.util.Random;
-
+import common.Temp;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -12,8 +12,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import common.Temp;
-import lombok.extern.log4j.Log4j2;
+import java.util.Collection;
+import java.util.Random;
+import java.util.stream.Collectors;
 
 @SpringBootApplication
 @EnableClusterConfiguration // will create 'temps' for me
@@ -55,8 +56,14 @@ class Runner implements ApplicationListener<ApplicationReadyEvent> {
 		}
 
 		// query
-		Object averageTemperature = this.execution.averageTemperature();
-		log.info("averageTemperature: " + averageTemperature.toString());
+		@SuppressWarnings("unchecked")
+		Collection<Double> doubles = (Collection<Double>)
+			this.execution.averageTemperature();
+		Double avg = doubles
+			.stream()
+			.collect(Collectors.averagingDouble(value -> value));
+		log.info("average from the results across all clusters: " + avg);
+
 
 	}
 
