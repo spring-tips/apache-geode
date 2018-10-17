@@ -1,26 +1,23 @@
 package client;
 
-import common.Temp;
-import lombok.extern.log4j.Log4j2;
+import java.util.Random;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
-import org.springframework.data.gemfire.config.annotation.EnableCachingDefinedRegions;
 import org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration;
 import org.springframework.data.gemfire.config.annotation.EnableEntityDefinedRegions;
-import org.springframework.data.gemfire.function.config.EnableGemfireFunctionExecutions;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
-import java.util.Random;
+import common.Temp;
+import lombok.extern.log4j.Log4j2;
 
-@EnableCachingDefinedRegions
 @SpringBootApplication
 @EnableClusterConfiguration // will create 'temps' for me
 @EnableEntityDefinedRegions(basePackageClasses = Temp.class)
-@EnableGemfireFunctionExecutions
 public class ClientApplication {
 
 	public static void main(String[] args) {
