@@ -45,11 +45,6 @@ interface TempRepository extends CrudRepository<Temp, Long> {
 @Component
 class Runner implements ApplicationListener<ApplicationReadyEvent> {
 
-	private String randomCity() {
-		String[] cities = "Toronto,San Francisco,New York".split(",");
-		return cities[new Random().nextInt(cities.length)];
-	}
-
 	private final TempRepository tempRepository;
 
 	Runner(TempRepository tempRepository) {
@@ -58,15 +53,18 @@ class Runner implements ApplicationListener<ApplicationReadyEvent> {
 
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
-
-
 		this.tempRepository
 			.findAll()
 			.forEach(this.tempRepository::delete);
-
 		int start = (int) (Math.random() * 100);
-		for (int i = start; i < start + 100; i++)
+		for (int i = start; i < start + 100; i++) {
 			this.insertRecord();
+		}
+	}
+
+	private String randomCity() {
+		String[] cities = "Toronto,San Francisco,New York".split(",");
+		return cities[new Random().nextInt(cities.length)];
 	}
 
 	private void insertRecord() {
